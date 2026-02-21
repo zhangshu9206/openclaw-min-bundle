@@ -18,19 +18,10 @@
 
 ---
 
-## 包含内容
+## 下载
 
-- `systemd-user/`
-  - `openclaw-gateway.service`：网关 systemd **user** service（模板，不含密钥）
-  - `openclaw-gateway.service.d/auto-fix.conf`：OnFailure + 启动限流配置
-  - `openclaw-fix.service`：触发修复脚本的 oneshot service
-- `scripts/`
-  - `openclaw-fix.sh`：网关失败后的自动修复入口（可选：调用 Claude Code）
-  - `safe-gateway-restart.sh`：手动“安全重启”（检测错误→可选修复→再重启）
-- `skills/codex-deep-search/`
-  - `scripts/search.sh`：使用 Codex CLI 执行 deep search（支持后台 dispatch + Telegram 回调）
-- `dist/openclaw-min-bundle.zip`
-  - 同内容的加密压缩包（为方便离线传输；密码不在仓库公开）
+- 请从仓库中的 `dist/openclaw-min-bundle.zip` 下载加密压缩包。
+- **解压密码在置顶教程视频中**（本仓库不提供密码）。
 
 ---
 
