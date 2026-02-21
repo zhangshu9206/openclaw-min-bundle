@@ -14,6 +14,8 @@
 
 **教程视频链接：https://youtu.be/7n9qbuzwS-U**
 
+
+**B站视频链接：https://www.bilibili.com/video/BV1pefHB1ENJ/**
 > **重要：本仓库不提供解压密码。解压密码已放在上面的视频中，请到视频里获取。**
 
 ---
