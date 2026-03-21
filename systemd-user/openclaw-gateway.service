@@ -1,0 +1,26 @@
+[Unit]
+Description=OpenClaw Gateway (template)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# IMPORTANT: adjust the openclaw dist path to your machine.
+ExecStart=/usr/bin/node %h/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port ${OPENCLAW_GATEWAY_PORT}
+
+Restart=always
+RestartSec=5
+KillMode=process
+
+# Load sensitive values (token / API keys) from an env file you create.
+# Recommended perms: chmod 600 %h/.config/openclaw/gateway.env
+EnvironmentFile=%h/.config/openclaw/gateway.env
+
+# Minimal runtime env
+Environment=HOME=%h
+Environment=OPENCLAW_GATEWAY_PORT=18789
+Environment="PATH=%h/.local/bin:%h/.npm-global/bin:%h/.nvm/current/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="OPENCLAW_SYSTEMD_UNIT=openclaw-gateway.service"
+
+[Install]
+WantedBy=default.target

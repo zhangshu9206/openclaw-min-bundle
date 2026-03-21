@@ -1,0 +1,10 @@
+[Unit]
+Description=OpenClaw Gateway Auto-Fix (triggered on failure)
+
+[Service]
+Type=oneshot
+# IMPORTANT: adjust the script path to your machine.
+ExecStart=%h/clawd/scripts/openclaw-fix.sh
+Environment=HOME=%h
+Environment="PATH=%h/.local/bin:%h/.npm-global/bin:%h/.nvm/current/bin:/usr/local/bin:/usr/bin:/bin"
+TimeoutStartSec=750
