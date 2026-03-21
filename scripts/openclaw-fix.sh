@@ -19,7 +19,7 @@ TELEGRAM_TARGET="${OPENCLAW_FIX_TELEGRAM_TARGET:-}"
 
 # Paths (adjust to your environment)
 OPENCLAW_CONFIG_PATH="${OPENCLAW_CONFIG_PATH:-$HOME/.openclaw/openclaw.json}"
-LOG_DIR="${OPENCLAW_LOG_DIR:-/tmp/openclaw-1000}"
+LOG_DIR="${OPENCLAW_LOG_DIR:-/tmp/openclaw}"
 LOG_DATE="$(date -u +%Y-%m-%d)"
 LOG_FILE="${LOG_DIR}/openclaw-${LOG_DATE}.log"
 
@@ -92,6 +92,12 @@ restart_and_check() {
 
 # ---- Main ----
 ERROR_CONTEXT="$(collect_errors)"
+OPENCLAW_VERSION="$(openclaw --version 2>&1 || echo 'unknown')"
+
+echo "Service: $SERVICE_NAME"
+echo "Version: $OPENCLAW_VERSION"
+echo "LOG_FILE: $LOG_FILE"
+echo "TG_ID: $TELEGRAM_TARGET"
 
 # If config JSON is invalid, surface it early
 if [[ -f "$OPENCLAW_CONFIG_PATH" ]]; then
