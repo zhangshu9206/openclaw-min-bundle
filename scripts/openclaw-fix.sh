@@ -128,7 +128,9 @@ $ERROR_CONTEXT
 
 Rules:
 - Prefer minimal changes.
-- Do NOT remove known-good baseline plugins unless clearly broken.
+- OpenClaw Version: $OPENCLAW_VERSION
+- 删除无效的 JSON成员 in $OPENCLAW_CONFIG_PATH
+- Do NOT remove known-good baseline plugins unless clearly broken: memory-lancedb-pro, a2a-gateway
 - After changes, verify JSON (if present): python3 -m json.tool $OPENCLAW_CONFIG_PATH > /dev/null
 - Then restart systemd user service: systemctl --user restart $SERVICE_NAME
 
